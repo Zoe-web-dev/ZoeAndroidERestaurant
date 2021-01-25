@@ -10,7 +10,7 @@
         android:id="@+id/titleApp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="sans-serif"
         android:text="@string/title1"
         android:textAlignment="center"
@@ -35,34 +35,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleApp" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/buttonEntrance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/entrance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleApp2" />
+
+    <Button
+        android:id="@+id/buttonDishes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/dishes"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDeserts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEntrance" />
+
+    <Button
+        android:id="@+id/buttonDeserts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:orientation="vertical"
+        android:layout_marginBottom="32dp"
+        android:text="@string/deserts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/titleApp2" />
 
-        <Button
-            android:id="@+id/buttonEntrance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/entrance" />
-
-        <Button
-            android:id="@+id/buttonDishes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dishes" />
-
-        <Button
-            android:id="@+id/buttonDeserts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/deserts" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
