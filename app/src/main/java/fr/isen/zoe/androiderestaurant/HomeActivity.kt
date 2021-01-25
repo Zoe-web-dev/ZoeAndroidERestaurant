@@ -20,7 +20,7 @@ class HomeActivity : AppCompatActivity() {
         //bouton aller à l'activité category entrees
         binding.buttonEntrance.setOnClickListener {
             val intent = Intent(this, CategoryActivity::class.java)
-            val toast = Toast.makeText(applicationContext, "access entrance", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(applicationContext, "Nos entrées", Toast.LENGTH_SHORT)
             toast.show()
             //envoyer une string dans une autre activité
             intent.putExtra(CATEGORY, getString(R.string.entrance))
@@ -31,7 +31,7 @@ class HomeActivity : AppCompatActivity() {
         //bouton aller à l'activité category plats
         binding.buttonDishes.setOnClickListener {
             val intent = Intent(this, CategoryActivity::class.java)
-            val toast = Toast.makeText(applicationContext, "access dishes", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(applicationContext, "Nos plats", Toast.LENGTH_SHORT)
             toast.show()
             //envoyer une string dans une autre activité
             intent.putExtra(CATEGORY, getString(R.string.dishes))
@@ -41,7 +41,7 @@ class HomeActivity : AppCompatActivity() {
         //bouton aller à l'activité category deserts
         binding.buttonDeserts.setOnClickListener {
             val intent = Intent(this, CategoryActivity::class.java)
-            val toast = Toast.makeText(applicationContext, "access deserts", Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(applicationContext, "Nos desserts", Toast.LENGTH_SHORT)
             toast.show()
             //envoyer une string dans une autre activité
             intent.putExtra(CATEGORY, getString(R.string.deserts))
