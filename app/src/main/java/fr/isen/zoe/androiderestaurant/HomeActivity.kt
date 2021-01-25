@@ -14,18 +14,30 @@ class HomeActivity : AppCompatActivity() {
         binding= ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //bouton aller à l'activité suivante
+        //bouton aller à l'activité category entrees
         binding.buttonEntrance.setOnClickListener {
-            val intent = Intent(this, EntranceActivity::class.java)
-            finish()
+            val intent = Intent(this, CategoryActivity::class.java)
+            val toast = Toast.makeText(applicationContext, "access entrance", Toast.LENGTH_SHORT)
+            toast.show()
+            startActivity(intent)
+            //finish()
+        }
+
+        //bouton aller à l'activité category plats
+        binding.buttonDishes.setOnClickListener {
+            val intent = Intent(this, CategoryActivity::class.java)
+            val toast = Toast.makeText(applicationContext, "access dishes", Toast.LENGTH_SHORT)
+            toast.show()
             startActivity(intent)
         }
 
-
-        val toast = Toast.makeText(applicationContext, "entrées", Toast.LENGTH_SHORT)
-        toast.show()
-
-
+        //bouton aller à l'activité category deserts
+        binding.buttonDeserts.setOnClickListener {
+            val intent = Intent(this, CategoryActivity::class.java)
+            val toast = Toast.makeText(applicationContext, "access deserts", Toast.LENGTH_SHORT)
+            toast.show()
+            startActivity(intent)
+        }
 
     }
 }
