@@ -6,4 +6,19 @@
     <string name="entrance">Entrées</string>
     <string name="dishes">Plats</string>
     <string name="deserts">Desserts</string>
+
+<!-- BDD ecrite en dure -->
+    <string name="entree1">pizza</string>
+    <string name="entree2">toast</string>
+    <string name="entree3">saumon</string>
+
+    <string name="plat1">riz dinde</string>
+    <string name="plat2">spaghetti</string>
+    <string name="plat3">couscous</string>
+
+    <string name="dessert1">mousse au chocolat</string>
+    <string name="dessert2">chausson pompe</string>
+    <string name="dessert3">glace vanille</string>
+
+
 </resources>
