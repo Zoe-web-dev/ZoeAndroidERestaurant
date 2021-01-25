@@ -17,6 +17,6 @@ class CategoryActivity : AppCompatActivity() {
         binding.titleCategory.text = intent.getStringExtra(HomeActivity.CATEGORY)
 
         binding.listCategory.layoutManager = LinearLayoutManager(this)
-        binding.listCategory.adapter = CategoryListAdapter(listOf("gateau", "entree2", "entree3"))
+        binding.listCategory.adapter = CategoryListAdapter(listOf("gateau", "cookie","pompe"))
     }
 }
