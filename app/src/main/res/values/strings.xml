@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidERestaurant</string>
+    <string name="title1">Bienvenue chez</string>
+    <string name="title2">Bonne Bouffe</string>
+
+    <string name="entrance">Entrées</string>
+    <string name="dishes">Plats</string>
+    <string name="deserts">Déserts</string>
+</resources>
