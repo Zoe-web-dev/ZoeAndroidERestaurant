@@ -11,7 +11,7 @@ data class APIdish(
 ) : Serializable {
     fun getPrice() = prices[0].price + "€"
     fun getFormattedPrice() = prices[0].price + "€"
-    fun getFirstPicture() = if (pictures.isNotEmpty() && pictures[0].isNotEmpty()) {
+    fun getImage() = if (pictures.isNotEmpty() && pictures[0].isNotEmpty()) {
         pictures[0]
     } else {
         null
