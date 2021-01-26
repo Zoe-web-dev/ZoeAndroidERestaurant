@@ -70,5 +70,4 @@ class CategoryActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
 }
