@@ -8,6 +8,8 @@
     <string name="dishes">Plats</string>
     <string name="deserts">Desserts</string>
 
+    <string name="ingredient">INGREDIENTS</string>
+
     <!-- BDD ecrite en dure tableau -->
     <string-array name="bdd">
         <item>Salade composée</item>

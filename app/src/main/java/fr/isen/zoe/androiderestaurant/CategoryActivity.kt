@@ -30,7 +30,6 @@ class CategoryActivity : AppCompatActivity() {
 
     }
 
-
     //Requete POST avec Volley
     //fonction loadData permet d'aller récuperer les données de l'api
     private fun loadData(category: String) {
