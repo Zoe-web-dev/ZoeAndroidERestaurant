@@ -1,20 +1,20 @@
 package fr.isen.zoe.androiderestaurant
 
+import APIservices.APIdish
+import APIservices.APIresults
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
-import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import fr.isen.zoe.androiderestaurant.databinding.ActivityCategoryBinding
 import org.json.JSONException
 import org.json.JSONObject
-import java.util.*
 
 private lateinit var binding: ActivityCategoryBinding
 
@@ -24,7 +24,7 @@ class CategoryActivity : AppCompatActivity() {
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        loadData()
+        loadData(intent.getStringExtra("category") ?: "")
 
         binding.titleCategory.text = intent.getStringExtra(HomeActivity.CATEGORY)
 
@@ -32,8 +32,8 @@ class CategoryActivity : AppCompatActivity() {
 
 
     //Requete POST avec Volley
-    private fun loadData() {
-        //Requete POST avec Volley
+    //fonction loadData permet d'aller récuperer les données de l'api
+    private fun loadData(category: String) {
         val postUrl = "http://test.api.catering.bluecodegames.com/menu"
         val requestQueue = Volley.newRequestQueue(this)
         val postData = JSONObject()
@@ -45,26 +45,28 @@ class CategoryActivity : AppCompatActivity() {
 
         val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, postUrl, postData,
             {
-                val gson = Gson().fromJson(it.toString(), FoodDataJson::class.java)
-                val categories: List<String> = gson.data.map { it.name }
-                displayCategories(categories)
+                val gson: APIresults = Gson().fromJson(it.toString(), APIresults::class.java)
+
+                val dishes = gson.data.firstOrNull { it.name == category }?.dishes
+                if (dishes != null) {
+                    displayCategories(dishes)
+                } else {
+                    Log.e("CategoryActivity", "Pas de categorie trouvée")
+                }
             },
-            { error -> error.printStackTrace() })//afficher erreur au lieu loader
+            { error -> error.printStackTrace() }) //afficher erreur au lieu loader
 
         requestQueue.add(jsonObjectRequest)
     }
 
     //clicker sur la cardview pour aller a l'activité suivante
-    private fun displayCategories(menu: List<String>) {
-        binding.categoryLoader.visibility = View.GONE
+    private fun displayCategories(menu: List<APIdish>) {
         binding.categoryLoader.isVisible = false
-
         binding.listCategory.isVisible = true
-
         binding.listCategory.layoutManager = LinearLayoutManager(this)
         binding.listCategory.adapter = CategoryListAdapter(menu) {
             val intent = Intent(this, DetailsCategoryActivity::class.java)
-            intent.putExtra("category", it)
+            intent.putExtra("dish", it)
             startActivity(intent)
         }
     }
