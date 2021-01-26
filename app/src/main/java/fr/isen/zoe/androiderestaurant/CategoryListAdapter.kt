@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.zoe.androiderestaurant.databinding.CategoryCellBinding
 
-class CategoryListAdapter(val categories: List<String>) : RecyclerView.Adapter<CategoryListAdapter.CategoryHolder>() {
+class CategoryListAdapter(val categories: List<String>, private val categoriesClickListener: (String)->Unit) : RecyclerView.Adapter<CategoryListAdapter.CategoryHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
         val itemBinding = CategoryCellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CategoryHolder(itemBinding)
@@ -13,6 +13,9 @@ class CategoryListAdapter(val categories: List<String>) : RecyclerView.Adapter<C
 
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         holder.title.text = categories[position]
+        holder.layout.setOnClickListener{
+            categoriesClickListener.invoke(categories[position])
+        }
     }
 
     //determine le nombre d'items
@@ -22,5 +25,6 @@ class CategoryListAdapter(val categories: List<String>) : RecyclerView.Adapter<C
 
     class CategoryHolder(binding: CategoryCellBinding) : RecyclerView.ViewHolder(binding.root) {
         val title = binding.dishName
+        val layout = binding.root
     }
 }
