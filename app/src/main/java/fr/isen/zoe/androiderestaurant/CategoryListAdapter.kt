@@ -15,7 +15,9 @@ class CategoryListAdapter(val categories: List<APIdish>, private val categoriesC
 
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
         val myItem = categories[position]
+        //on affiche le titre du dish
         holder.title.text = categories[position].title
+        //on affiche le prix du dish
         holder.price.text = myItem.getFormattedPrice()
 
         val image = myItem.getImage()

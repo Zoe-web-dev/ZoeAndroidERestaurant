@@ -2,6 +2,8 @@ package fr.isen.zoe.androiderestaurant
 
 import APIservices.APIdish
 import android.os.Bundle
+import android.util.Log
+import android.widget.Adapter
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import fr.isen.zoe.androiderestaurant.databinding.ActivityDetailsCategoryBinding
@@ -19,19 +21,27 @@ class DetailsCategoryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Afficher le titre
-        val dish = intent.getSerializableExtra("dish") as? APIdish
-        binding.titleDish.text = dish?.title
+        val dish = intent.getSerializableExtra("dish") as APIdish
+        binding.titleDish.text = dish.title
 
         //Afficher les ingrédients
-        binding.ingredientDetailsDish.text = dish?.ingredients?.map{ it.name }?.joinToString(", ")
+        binding.ingredientDetailsDish.text = dish.ingredients.map{ it.name }.joinToString(", ")
 
-        //Afficher photo
-        val image = dish?.getImage()
+        //Afficher une photo
+        val image = dish.getImage()
         if ( image != null && image.isNotEmpty()){
             Picasso.get()
                 .load(image)
                 .placeholder(R.drawable.ic_baseline_image_search_24)
                 .into(binding.imageDish)
         }
+
+        //Afficher le carrousel d'images
+        //Si pas d'image alors pas de carrousel
+        dish.getAllPictures()?.let {
+           binding.viewPagerCarousel.adapter = CarouselAdapter(this, it)
+        }
+
     }
+
 }
