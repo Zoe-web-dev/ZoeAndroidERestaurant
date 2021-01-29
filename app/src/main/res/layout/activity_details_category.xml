@@ -23,6 +23,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerCarousel"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </androidx.viewpager2.widget.ViewPager2>
+
     <ImageView
         android:id="@+id/imageDish"
         android:layout_width="0dp"
@@ -34,15 +43,8 @@
         app:layout_constraintTop_toBottomOf="@+id/titleDish"
         app:srcCompat="@drawable/mr_salty" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPagerCarousel"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginBottom="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
-    </androidx.viewpager2.widget.ViewPager2>
+
+
     <TextView
         android:id="@+id/descriptionDish"
         android:layout_width="0dp"
