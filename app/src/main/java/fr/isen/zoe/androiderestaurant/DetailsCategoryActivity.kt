@@ -1,16 +1,12 @@
 package fr.isen.zoe.androiderestaurant
 
 import APIservices.APIdish
-import android.content.Intent
+import APIservices.JsonItemBasket
 import android.os.Bundle
-import android.util.Log
-import android.widget.Adapter
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.squareup.picasso.Picasso
+import com.google.gson.Gson
 import fr.isen.zoe.androiderestaurant.databinding.ActivityDetailsCategoryBinding
-import org.json.JSONException
-import org.json.JSONObject
+import java.io.File
 
 private lateinit var binding: ActivityDetailsCategoryBinding
 
@@ -69,6 +65,26 @@ class DetailsCategoryActivity : AppCompatActivity() {
             //mettre a jour le prix total
             var totalPrice = dish.getPriceItem().toFloat()*quantity
             binding.buttonOrder.text = "Acheter pour " + totalPrice.toString() + "€"
+        }
+
+        //gestion basket
+        binding.buttonOrder.setOnClickListener{
+            addToBasket(dish, quantity)
+        }
+    }
+
+    fun addToBasket(item: APIdish, nbToAdd: Int) {
+        val file = File(cacheDir.absolutePath + "Basket.json")
+        //Verif existant -> Créé et écris sinon récup valeur et serialization Json et j'écris
+        if(file.exists()){
+            val json = Gson().fromJson(file.readText(), JsonItemBasket::class.java)
+            json.quantity = nbToAdd
+            json.items = item
+
+            file.writeText(Gson().toJson(json))
+        }else {
+            val jsonObject = Gson().toJson(JsonItemBasket(nbToAdd, item))
+            file.writeText(jsonObject)
         }
     }
 }
