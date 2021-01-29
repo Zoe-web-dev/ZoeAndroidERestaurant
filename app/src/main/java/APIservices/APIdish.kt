@@ -10,6 +10,7 @@ data class APIdish(
     @SerializedName("prices") private val prices: List<Price>
 ) : Serializable {
     fun getPrice() = prices[0].price + "€"
+    fun getPriceItem() = prices[0].price
     fun getFormattedPrice() = prices[0].price + "€"
     fun getImage() = if (pictures.isNotEmpty() && pictures[0].isNotEmpty()) {
         pictures[0]

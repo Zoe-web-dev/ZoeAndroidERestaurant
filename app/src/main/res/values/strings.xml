@@ -12,7 +12,7 @@
 
     <string name="ingredient">INGREDIENTS</string>
 
-    <string name="stringButtonOrder">ACHETER</string>
+    <string name="stringButtonOrder">ACHETER pour </string>
 
     <!-- BDD ecrite en dure tableau -->
     <string-array name="bdd">
