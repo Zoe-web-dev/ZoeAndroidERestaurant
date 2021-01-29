@@ -3,6 +3,7 @@ package fr.isen.zoe.androiderestaurant
 import APIservices.APIdish
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.squareup.picasso.Picasso
 import fr.isen.zoe.androiderestaurant.databinding.ActivityDetailsCategoryBinding
 import org.json.JSONException
 import org.json.JSONObject
@@ -25,7 +26,12 @@ class DetailsCategoryActivity : AppCompatActivity() {
         binding.ingredientDetailsDish.text = dish?.ingredients?.map{ it.name }?.joinToString(", ")
 
         //Afficher photo
-
-
+        val image = dish?.getImage()
+        if ( image != null && image.isNotEmpty()){
+            Picasso.get()
+                .load(image)
+                .placeholder(R.drawable.ic_baseline_image_search_24)
+                .into(binding.imageDish)
+        }
     }
 }

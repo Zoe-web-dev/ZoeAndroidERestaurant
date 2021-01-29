@@ -26,11 +26,8 @@ class CategoryListAdapter(val categories: List<APIdish>, private val categoriesC
                 .into(holder.image)
         }
 
-
-
         holder.layout.setOnClickListener{
-            categoriesClickListener.invoke(categories[position])
-        }
+            categoriesClickListener.invoke(categories[position]) }
     }
 
     //determine le nombre d'items

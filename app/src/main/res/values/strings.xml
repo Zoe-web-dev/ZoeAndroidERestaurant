@@ -8,6 +8,8 @@
     <string name="dishes">Plats</string>
     <string name="deserts">Desserts</string>
 
+    <string name="descriptionDish">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</string>
+
     <string name="ingredient">INGREDIENTS</string>
 
     <!-- BDD ecrite en dure tableau -->

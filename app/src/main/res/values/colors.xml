@@ -10,4 +10,5 @@
     <color name="gold">#FFC000</color>
     <color name="beige">#F3EBD8</color>
     <color name="greyDark">#595959</color>
+    <color name="greylight">#E7E7E7</color>
 </resources>
