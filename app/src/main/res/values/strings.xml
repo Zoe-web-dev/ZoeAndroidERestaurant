@@ -12,6 +12,8 @@
 
     <string name="ingredient">INGREDIENTS</string>
 
+    <string name="stringButtonOrder">ACHETER</string>
+
     <!-- BDD ecrite en dure tableau -->
     <string-array name="bdd">
         <item>Salade composée</item>

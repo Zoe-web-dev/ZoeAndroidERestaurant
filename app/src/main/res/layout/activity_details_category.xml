@@ -22,16 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPagerCarousel"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-    </androidx.viewpager2.widget.ViewPager2>
-
+<!--
     <ImageView
         android:id="@+id/imageDish"
         android:layout_width="0dp"
@@ -42,8 +33,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleDish"
         app:srcCompat="@drawable/mr_salty" />
-
-
+-->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerCarousel"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDish">
+    </androidx.viewpager2.widget.ViewPager2>
 
     <TextView
         android:id="@+id/descriptionDish"
@@ -59,7 +57,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageDish" />
+        app:layout_constraintTop_toBottomOf="@+id/viewPagerCarousel" />
 
     <TextView
         android:id="@+id/titleIngredientDish"
@@ -87,14 +85,72 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif-condensed-medium"
-        android:text="description ingredient"
+        android:text="@string/descriptionDish"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleIngredientDish" />
 
+    <LinearLayout
+        android:id="@+id/quantityLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
+        <ImageView
+            android:id="@+id/buttonMoins"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_round_remove_circle_24"
+            android:tint="@color/gold" />
 
+        <TextView
+            android:id="@+id/counterQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="num"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/buttonPlus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_round_add_circle_24"
+            android:tint="@color/gold" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/stringButtonOrder"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:backgroundTint="@color/beige"
+        android:textColor="@color/gold"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

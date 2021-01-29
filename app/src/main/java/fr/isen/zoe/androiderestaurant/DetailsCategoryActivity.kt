@@ -27,7 +27,8 @@ class DetailsCategoryActivity : AppCompatActivity() {
         //Afficher les ingrédients
         binding.ingredientDetailsDish.text = dish.ingredients.map{ it.name }.joinToString(", ")
 
-        //Afficher une photo
+/*
+        //Afficher la première photo de l'api
         val image = dish.getImage()
         if ( image != null && image.isNotEmpty()){
             Picasso.get()
@@ -35,6 +36,7 @@ class DetailsCategoryActivity : AppCompatActivity() {
                 .placeholder(R.drawable.ic_baseline_image_search_24)
                 .into(binding.imageDish)
         }
+*/
 
         //Afficher le carrousel d'images
         //Si pas d'image alors pas de carrousel
