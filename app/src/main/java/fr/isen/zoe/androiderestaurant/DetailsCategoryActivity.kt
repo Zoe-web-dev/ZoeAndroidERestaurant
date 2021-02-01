@@ -1,6 +1,7 @@
 package fr.isen.zoe.androiderestaurant
 
 import APIservices.APIdish
+import APIservices.JsonBasket
 import APIservices.JsonItemBasket
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -73,17 +74,17 @@ class DetailsCategoryActivity : AppCompatActivity() {
         }
     }
 
+    //fonction ajouter au panier les dish selectionnés par l'utilisateur
     fun addToBasket(item: APIdish, nbToAdd: Int) {
+        val article = JsonItemBasket(nbToAdd, item)
         val file = File(cacheDir.absolutePath + "Basket.json")
-        //Verif existant -> Créé et écris sinon récup valeur et serialization Json et j'écris
         if(file.exists()){
-            val json = Gson().fromJson(file.readText(), JsonItemBasket::class.java)
-            json.quantity = nbToAdd
-            json.items = item
-
+            val json = Gson().fromJson(file.readText(), JsonBasket::class.java)
+            json.totalQuantity += nbToAdd
+            json.basket += article
             file.writeText(Gson().toJson(json))
         }else {
-            val jsonObject = Gson().toJson(JsonItemBasket(nbToAdd, item))
+            val jsonObject = Gson().toJson(JsonBasket(nbToAdd, listOf(article)))
             file.writeText(jsonObject)
         }
     }
