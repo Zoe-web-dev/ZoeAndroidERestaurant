@@ -3,16 +3,19 @@
     <string name="title1">Bienvenue chez</string>
     <string name="title2">Bonne Bouffe</string>
 
+    <string name="basket">Votre panier</string>
+
     <string name="aperetif">Apérétifs</string>
     <string name="entrance">Entrées</string>
     <string name="dishes">Plats</string>
     <string name="deserts">Desserts</string>
 
     <string name="descriptionDish">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</string>
+    <string name="titleDish">Titre du plat</string>
 
     <string name="ingredient">INGREDIENTS</string>
 
-    <string name="stringButtonOrder">ACHETER pour </string>
+    <string name="stringButtonOrder">AJOUTER au panier : </string>
 
     <!-- BDD ecrite en dure tableau -->
     <string-array name="bdd">
