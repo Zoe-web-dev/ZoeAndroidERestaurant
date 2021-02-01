@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import fr.isen.zoe.androiderestaurant.databinding.ActivityBasketDetailsBinding
 import fr.isen.zoe.androiderestaurant.databinding.ActivityHomeBinding
 
 private lateinit var binding: ActivityHomeBinding
@@ -48,6 +49,13 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        //bouton PANIER vers activity_basket_details
+        binding.imageViewBasket.setOnClickListener{
+            val intent = Intent(this, BasketDetailsActivity::class.java)
+            val toast = Toast.makeText(applicationContext, "Votre panier", Toast.LENGTH_SHORT)
+            toast.show()
+            startActivity(intent)
+        }
     }
 
     override fun onDestroy() {
