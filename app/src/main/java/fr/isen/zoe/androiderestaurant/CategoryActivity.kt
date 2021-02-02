@@ -31,7 +31,7 @@ class CategoryActivity : AppCompatActivity() {
     }
 
     //Requete POST avec Volley
-    //fonction loadData permet d'aller récuperer les données de l'api
+    //fonction loadData permet d'aller récuperer les données de l'API
     private fun loadData(category: String) {
         val postUrl = "http://test.api.catering.bluecodegames.com/menu"
         val requestQueue = Volley.newRequestQueue(this)

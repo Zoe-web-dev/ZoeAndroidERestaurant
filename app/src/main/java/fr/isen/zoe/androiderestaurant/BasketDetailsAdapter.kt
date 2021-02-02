@@ -33,7 +33,7 @@ class BasketDetailsAdapter(
         //on affiche le titre du dish
         holder.title.text = data.item.title
         //on affiche le prix total
-        holder.totalPrice.text = (data.quantity * data.item.getFormattedPrice().toDouble()).toString()
+        holder.totalPrice.text = (data.quantity * data.item.getPriceItem().toDouble()).toString()+"€"
         //on affiche la quantité totale
         holder.totalQty.text = data.quantity.toString()
         //on affiche une image du plat
