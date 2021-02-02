@@ -26,6 +26,14 @@
         <item>manger gras pas bien</item>
     </string-array>
 
+    <!-- CONNECTION compte -->
+    <string name="email">E-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="logIn">Se connecter</string>
+    <string name="logOut">Se déconnecter</string>
+    <string name="signUp">Créer un compte</string>
+    <string name="forgotPassword">Mot de passe oublié ?</string>
+
     <string name="imageDescription">content description</string>
 
 </resources>

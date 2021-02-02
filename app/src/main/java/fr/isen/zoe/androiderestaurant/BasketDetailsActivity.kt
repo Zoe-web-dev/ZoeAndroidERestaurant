@@ -1,8 +1,10 @@
 package fr.isen.zoe.androiderestaurant
 
 import APIservices.JsonBasket
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
@@ -18,6 +20,14 @@ class BasketDetailsActivity : BaseActivity() {
         binding = ActivityBasketDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         readFile()
+
+        //bouton payer aller à l'activité LogIn
+        binding.buttonCommander.setOnClickListener {
+            val intent = Intent(this, LogInActivity::class.java)
+            val toast = Toast.makeText(applicationContext, "Connecter vous", Toast.LENGTH_SHORT)
+            toast.show()
+            startActivity(intent)
+        }
     }
 
     private fun readFile() {
