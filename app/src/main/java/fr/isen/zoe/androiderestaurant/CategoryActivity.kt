@@ -53,7 +53,7 @@ class CategoryActivity : AppCompatActivity() {
                     Log.e("CategoryActivity", "Pas de categorie trouvée")
                 }
             },
-            { error -> error.printStackTrace() }) //afficher erreur au lieu loader
+            { error -> error.printStackTrace() })
 
         requestQueue.add(jsonObjectRequest)
     }

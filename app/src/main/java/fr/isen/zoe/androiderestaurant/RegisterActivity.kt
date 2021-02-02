@@ -1,12 +1,12 @@
 package fr.isen.zoe.androiderestaurant
 
-import APIservices.RegisterJson
+import APIservices.ResponseJSON
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -24,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Appuyer pour creer un compte
         binding.buttonRegister.setOnClickListener {
             if (isEverythingValid()) {
                 createAccount()
@@ -89,8 +90,11 @@ class RegisterActivity : AppCompatActivity() {
         } catch (e: JSONException) {
             e.printStackTrace()
         }
-        val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, postUrl, postData, {
-                val gson = Gson().fromJson(it.toString(), RegisterJson::class.java)
+        val jsonObjectRequest = JsonObjectRequest(Request.Method.POST, postUrl, postData,
+            {
+                val gson = Gson().fromJson(it.toString(), ResponseJSON::class.java)
+                val sharedPreferences = getSharedPreferences(BasketDetailsActivity.APP_PREFS, MODE_PRIVATE)
+                sharedPreferences.edit().putString("id_user", gson.data.id.toString()).apply()
             },
             {
                 Log.i("state", "request failed")
