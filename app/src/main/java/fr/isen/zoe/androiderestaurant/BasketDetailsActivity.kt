@@ -1,6 +1,7 @@
 package fr.isen.zoe.androiderestaurant
 
 import APIservices.JsonBasket
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,12 +22,21 @@ class BasketDetailsActivity : BaseActivity() {
         setContentView(binding.root)
         readFile()
 
-        //bouton payer aller à l'activité LogIn
+        //gestion du bouton payer
         binding.buttonCommander.setOnClickListener {
-            val intent = Intent(this, LogInActivity::class.java)
-            val toast = Toast.makeText(applicationContext, "Connecter vous", Toast.LENGTH_SHORT)
-            toast.show()
-            startActivity(intent)
+            val sharedPreference =  getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE)
+            val user = sharedPreference.getString("id_user","0")
+
+            if(user == "0"){ //si pas connecter alors renvoie vers creation de compte
+                val intent = Intent(this, RegisterActivity::class.java)
+                startActivity(intent)
+            } else{
+                deleteBasket()
+                val toast = Toast.makeText(applicationContext, "Commande passée", Toast.LENGTH_SHORT)
+                toast.show()
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
@@ -61,6 +71,11 @@ class BasketDetailsActivity : BaseActivity() {
         val count = basket.items.sumOf { it.quantity }
         val sharedPreferences = getSharedPreferences(APP_PREFS, MODE_PRIVATE)
         sharedPreferences.edit().putInt(BASKET_COUNT, count).apply()
+    }
+
+    private fun deleteBasket(){
+        val file = File(cacheDir.absolutePath + "/$BASKET_FILE")
+        file.delete()
     }
 
     companion object {

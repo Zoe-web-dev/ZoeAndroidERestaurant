@@ -25,10 +25,19 @@
             android:layout_height="50dp"
             android:contentDescription="@string/imageDescription"
             android:scaleType="centerInside"
-            android:translationX="340dp"
+            android:translationX="10dp"
             app:srcCompat="@drawable/basket"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="3dp" />
+
+        <TextView
+            android:id="@+id/idUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID_USER"
+            android:translationX="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.appcompat.widget.Toolbar>
     <!--
         <TextView

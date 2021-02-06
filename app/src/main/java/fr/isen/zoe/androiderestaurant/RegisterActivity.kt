@@ -30,6 +30,9 @@ class RegisterActivity : AppCompatActivity() {
                 createAccount()
                 val toast = Toast.makeText(applicationContext, "Compte créé", Toast.LENGTH_SHORT)
                 toast.show()
+                val intent = Intent(this, BasketDetailsActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
 
