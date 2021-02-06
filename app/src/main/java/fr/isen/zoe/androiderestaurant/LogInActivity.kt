@@ -77,16 +77,29 @@ class LogInActivity : AppCompatActivity() {
     //API Service
     private fun logIn() {
         val sharedPreferences = getSharedPreferences(BasketDetailsActivity.APP_PREFS, MODE_PRIVATE)
-        if  (sharedPreferences.getString("id_user","0") != "1"){
-            val duration = Toast.LENGTH_LONG
-            val toast = Toast.makeText(applicationContext,"Vous êtes connecté", duration)
-            toast.show()
-        } else {
-            val duration = Toast.LENGTH_LONG
-            val toast = Toast.makeText(applicationContext,"Veuillez créer un compte", duration)
+        val user = sharedPreferences.getString("id_user","0")
+        if(user == "0"){ //si pas connecter alors renvoie vers creation de compte
+            val toast = Toast.makeText(applicationContext, "Veuillez créer un compte", Toast.LENGTH_SHORT)
             toast.show()
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+        } else{
+            val toast = Toast.makeText(applicationContext, "Vous etes déjà connecté", Toast.LENGTH_SHORT)
+            toast.show()
         }
     }
 }
+
+/*
+if(user == "0"){
+    val duration = Toast.LENGTH_LONG
+    val toast = Toast.makeText(applicationContext,"Vous êtes connecté", duration)
+    toast.show()
+} else {
+    val duration = Toast.LENGTH_LONG
+    val toast = Toast.makeText(applicationContext,"Veuillez créer un compte", duration)
+    toast.show()
+    val intent = Intent(this, RegisterActivity::class.java)
+    startActivity(intent)
+}
+*/

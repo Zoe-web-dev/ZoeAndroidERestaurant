@@ -14,7 +14,7 @@ import java.io.File
 
 private lateinit var binding: ActivityBasketDetailsBinding
 
-class BasketDetailsActivity : BaseActivity() {
+class BasketDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +30,7 @@ class BasketDetailsActivity : BaseActivity() {
             if(user == "0"){ //si pas connecter alors renvoie vers creation de compte
                 val intent = Intent(this, RegisterActivity::class.java)
                 startActivity(intent)
+                finish()
             } else{
                 deleteBasket()
                 val toast = Toast.makeText(applicationContext, "Commande passée", Toast.LENGTH_SHORT)
