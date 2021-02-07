@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
@@ -27,6 +28,14 @@ class CategoryActivity : AppCompatActivity() {
         loadData(intent.getStringExtra("category") ?: "")
 
         binding.titleCategory.text = intent.getStringExtra(HomeActivity.CATEGORY)
+
+        //bouton PANIER vers activity_basket_details
+        binding.imageViewBasket.setOnClickListener {
+            val intent = Intent(this, BasketDetailsActivity::class.java)
+            val toast = Toast.makeText(applicationContext, "Votre panier", Toast.LENGTH_SHORT)
+            toast.show()
+            startActivity(intent)
+        }
 
     }
 

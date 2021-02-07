@@ -4,8 +4,10 @@ import APIservices.APIdish
 import APIservices.JsonBasket
 import APIservices.JsonItemBasket
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -78,6 +80,14 @@ class DetailsCategoryActivity : AppCompatActivity() {
         //gestion basket
         binding.buttonOrder.setOnClickListener {
             addToBasket(quantity,dish)
+        }
+
+        //bouton PANIER vers activity_basket_details
+        binding.imageViewBasket.setOnClickListener {
+            val intent = Intent(this, BasketDetailsActivity::class.java)
+            val toast = Toast.makeText(applicationContext, "Votre panier", Toast.LENGTH_SHORT)
+            toast.show()
+            startActivity(intent)
         }
     }
 
